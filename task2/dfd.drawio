@@ -1,0 +1,239 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/24.7.8 Chrome/128.0.6613.36 Electron/32.0.1 Safari/537.36" version="24.7.8" pages="2">
+  <diagram id="dfd0" name="DFD Level 0">
+    <mxGraphModel dx="1294" dy="986" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="fin_src" value="Fintech Systems" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#4A90E2;fillColor=#ffffff;" parent="1" vertex="1">
+          <mxGeometry x="185" y="264" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="clinics_src" value="Clinic HIS" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#4A90E2;fillColor=#ffffff;" parent="1" vertex="1">
+          <mxGeometry x="185" y="344" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="pharma_src" value="Pharma Systems" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#4A90E2;fillColor=#ffffff;" parent="1" vertex="1">
+          <mxGeometry x="185" y="424" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="medequip_src" value="Med Electronics" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#4A90E2;fillColor=#ffffff;" parent="1" vertex="1">
+          <mxGeometry x="185" y="504" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="p0" value="P0: Data Management Platform" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#4A90E2;fillColor=#E8F4FF;arcSize=20;" parent="1" vertex="1">
+          <mxGeometry x="465" y="374" width="240" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="lakehouse" value="D1: Data Platform (Lakehouse)" style="shape=partialRectangle;right=0;rounded=0;whiteSpace=wrap;html=1;strokeColor=#4A90E2;fillColor=#ffffff;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=12;fontColor=default;" parent="1" vertex="1">
+          <mxGeometry x="785" y="264" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="legacy" value="D2: Legacy DWH" style="shape=partialRectangle;right=0;rounded=0;whiteSpace=wrap;html=1;strokeColor=#4A90E2;fillColor=#ffffff;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=12;fontColor=default;" parent="1" vertex="1">
+          <mxGeometry x="785" y="384" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="portal" value="D3: Self-Service Portal" style="shape=partialRectangle;right=0;rounded=0;whiteSpace=wrap;html=1;strokeColor=#4A90E2;fillColor=#ffffff;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=12;fontColor=default;" parent="1" vertex="1">
+          <mxGeometry x="785" y="504" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="jv2BOtvIdWeND_wyKvV7-2" value="" style="endArrow=classic;html=1;rounded=0;edgeStyle=orthogonalEdgeStyle;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="medequip_src" target="p0">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="375" y="604" as="sourcePoint" />
+            <mxPoint x="445" y="484" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="425" y="534" />
+              <mxPoint x="425" y="454" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="jv2BOtvIdWeND_wyKvV7-3" value="" style="endArrow=classic;html=1;rounded=0;edgeStyle=orthogonalEdgeStyle;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.75;entryDx=0;entryDy=0;" edge="1" parent="1" source="pharma_src" target="p0">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="365" y="604" as="sourcePoint" />
+            <mxPoint x="485" y="454" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="405" y="454" />
+              <mxPoint x="405" y="434" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="jv2BOtvIdWeND_wyKvV7-4" value="" style="endArrow=classic;html=1;rounded=0;edgeStyle=orthogonalEdgeStyle;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="fin_src" target="p0">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="375" y="614" as="sourcePoint" />
+            <mxPoint x="495" y="464" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="425" y="294" />
+              <mxPoint x="425" y="374" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="jv2BOtvIdWeND_wyKvV7-5" value="" style="endArrow=classic;html=1;rounded=0;edgeStyle=orthogonalEdgeStyle;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="p0" target="legacy">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="385" y="624" as="sourcePoint" />
+            <mxPoint x="505" y="474" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="jv2BOtvIdWeND_wyKvV7-6" value="" style="endArrow=classic;html=1;rounded=0;edgeStyle=orthogonalEdgeStyle;exitX=1;exitY=0.75;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="p0" target="portal">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="395" y="634" as="sourcePoint" />
+            <mxPoint x="515" y="484" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="jv2BOtvIdWeND_wyKvV7-7" value="" style="endArrow=classic;html=1;rounded=0;edgeStyle=orthogonalEdgeStyle;exitX=1;exitY=0.25;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="p0" target="lakehouse">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="405" y="644" as="sourcePoint" />
+            <mxPoint x="525" y="494" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="jv2BOtvIdWeND_wyKvV7-8" value="" style="endArrow=classic;html=1;rounded=0;edgeStyle=orthogonalEdgeStyle;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.25;entryDx=0;entryDy=0;" edge="1" parent="1" source="clinics_src" target="p0">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="415" y="654" as="sourcePoint" />
+            <mxPoint x="535" y="504" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="405" y="374" />
+              <mxPoint x="405" y="394" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="jv2BOtvIdWeND_wyKvV7-9" value="DFD — As-Is -&amp;gt; To-Be переход · Уровень 0" style="text;html=1;align=left;verticalAlign=top;fontSize=18;fontStyle=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="400" y="80" width="370" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="dfd1" name="DFD Level 1">
+    <mxGraphModel dx="1294" dy="986" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="p1" value="P1: Finance Data Processing" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#4A90E2;fillColor=#E8F4FF;arcSize=20;" parent="1" vertex="1">
+          <mxGeometry x="205" y="224" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="p2" value="P2: Clinics Data Processing" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#4A90E2;fillColor=#E8F4FF;arcSize=20;" parent="1" vertex="1">
+          <mxGeometry x="205" y="304" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="p3" value="P3: Pharma Data Processing" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#4A90E2;fillColor=#E8F4FF;arcSize=20;" parent="1" vertex="1">
+          <mxGeometry x="205" y="384" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="p4" value="P4: Med-Electronics Data Processing" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#4A90E2;fillColor=#E8F4FF;arcSize=20;" parent="1" vertex="1">
+          <mxGeometry x="205" y="464" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="p5" value="P5: AI/ML Data Processing" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#4A90E2;fillColor=#E8F4FF;arcSize=20;" parent="1" vertex="1">
+          <mxGeometry x="205" y="544" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="lakehouse" value="D1: Lakehouse" style="shape=partialRectangle;right=0;rounded=0;whiteSpace=wrap;html=1;strokeColor=#4A90E2;fillColor=#ffffff;" parent="1" vertex="1">
+          <mxGeometry x="485" y="374" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="fin_dp" value="D2: Finance Data Products" style="shape=partialRectangle;right=0;rounded=0;whiteSpace=wrap;html=1;strokeColor=#4A90E2;fillColor=#ffffff;" parent="1" vertex="1">
+          <mxGeometry x="765" y="224" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="clinics_dp" value="D3: Clinics Data Products" style="shape=partialRectangle;right=0;rounded=0;whiteSpace=wrap;html=1;strokeColor=#4A90E2;fillColor=#ffffff;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=12;fontColor=default;" parent="1" vertex="1">
+          <mxGeometry x="765" y="304" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="pharma_dp" value="D4: Pharma Data Products" style="shape=partialRectangle;right=0;rounded=0;whiteSpace=wrap;html=1;strokeColor=#4A90E2;fillColor=#ffffff;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=12;fontColor=default;" parent="1" vertex="1">
+          <mxGeometry x="765" y="384" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="medequip_dp" value="D5: Med-Electronics Data Products" style="shape=partialRectangle;right=0;rounded=0;whiteSpace=wrap;html=1;strokeColor=#4A90E2;fillColor=#ffffff;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=12;fontColor=default;" parent="1" vertex="1">
+          <mxGeometry x="765" y="464" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="portal" value="D6: Semantic Layer &amp; Portal" style="shape=partialRectangle;right=0;rounded=0;whiteSpace=wrap;html=1;strokeColor=#4A90E2;fillColor=#ffffff;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=12;fontColor=default;" parent="1" vertex="1">
+          <mxGeometry x="765" y="544" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="xf9-CU3XwP0WqZ2Y0M1h-1" value="DFD — As-Is -&amp;gt; To-Be переход · Уровень 1" style="text;html=1;align=left;verticalAlign=top;fontSize=18;fontStyle=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="400" y="80" width="370" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Yf8gPyXwHwwd_fNsBll0-1" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0;entryDx=0;entryDy=0;edgeStyle=orthogonalEdgeStyle;" edge="1" parent="1" source="p1" target="lakehouse">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="565" y="534" as="sourcePoint" />
+            <mxPoint x="615" y="484" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="445" y="254" />
+              <mxPoint x="445" y="374" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Yf8gPyXwHwwd_fNsBll0-2" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.25;entryDx=0;entryDy=0;edgeStyle=orthogonalEdgeStyle;" edge="1" parent="1" source="p2" target="lakehouse">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="435" y="214" as="sourcePoint" />
+            <mxPoint x="515" y="334" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="425" y="334" />
+              <mxPoint x="425" y="394" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Yf8gPyXwHwwd_fNsBll0-3" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.25;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;edgeStyle=orthogonalEdgeStyle;" edge="1" parent="1" source="lakehouse" target="clinics_dp">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="470" y="574" as="sourcePoint" />
+            <mxPoint x="550" y="694" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="745" y="394" />
+              <mxPoint x="745" y="334" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Yf8gPyXwHwwd_fNsBll0-4" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;edgeStyle=orthogonalEdgeStyle;" edge="1" parent="1" source="lakehouse" target="pharma_dp">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="405" y="644" as="sourcePoint" />
+            <mxPoint x="485" y="764" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="745" y="414" />
+              <mxPoint x="745" y="414" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Yf8gPyXwHwwd_fNsBll0-5" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;edgeStyle=orthogonalEdgeStyle;" edge="1" parent="1" source="lakehouse" target="fin_dp">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="565" y="497" as="sourcePoint" />
+            <mxPoint x="645" y="617" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="725" y="374" />
+              <mxPoint x="725" y="254" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Yf8gPyXwHwwd_fNsBll0-6" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.75;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;edgeStyle=orthogonalEdgeStyle;" edge="1" parent="1" source="lakehouse" target="medequip_dp">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="685" y="428" as="sourcePoint" />
+            <mxPoint x="765" y="548" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="745" y="434" />
+              <mxPoint x="745" y="494" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Yf8gPyXwHwwd_fNsBll0-7" value="" style="endArrow=classic;html=1;rounded=0;entryX=0;entryY=0;entryDx=0;entryDy=0;edgeStyle=orthogonalEdgeStyle;exitX=1;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="lakehouse">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="675" y="504" as="sourcePoint" />
+            <mxPoint x="765" y="574" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="725" y="454" />
+              <mxPoint x="725" y="574" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Yf8gPyXwHwwd_fNsBll0-8" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;edgeStyle=orthogonalEdgeStyle;" edge="1" parent="1" source="p3" target="lakehouse">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="345" y="697" as="sourcePoint" />
+            <mxPoint x="425" y="817" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="405" y="414" />
+              <mxPoint x="405" y="414" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Yf8gPyXwHwwd_fNsBll0-9" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.75;entryDx=0;entryDy=0;edgeStyle=orthogonalEdgeStyle;" edge="1" parent="1" source="p4" target="lakehouse">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="445" y="624" as="sourcePoint" />
+            <mxPoint x="525" y="744" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="425" y="494" />
+              <mxPoint x="425" y="434" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Yf8gPyXwHwwd_fNsBll0-10" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=1;entryDx=0;entryDy=0;edgeStyle=orthogonalEdgeStyle;" edge="1" parent="1" source="p5" target="lakehouse">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="495" y="544" as="sourcePoint" />
+            <mxPoint x="575" y="664" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="445" y="574" />
+              <mxPoint x="445" y="454" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

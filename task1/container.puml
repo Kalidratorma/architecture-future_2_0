@@ -1,0 +1,96 @@
+@startuml Future20_Container
+!define C4P https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master
+!includeurl C4P/C4_Context.puml
+!includeurl C4P/C4_Container.puml
+!includeurl C4P/C4_Component.puml
+
+Person(bi_user, "Business User", "Доменные аналитики/менеджеры")
+Person(data_eng, "Data/Analytics Engineers", "Инженеры данных/BI")
+Person(sec_officer, "Security & Compliance", "Доступы, аудит, соответствие")
+
+System_Boundary(company, "Future 2.0") {
+
+  System_Boundary(op_sources, "Operational Sources (by Domain)") {
+    System_Ext(fin_core, "Fintech Core", "Go/Java", "Транзакции, счета, кредиты")
+    System_Ext(clinic_his, "Clinic HIS", "Legacy EMR/Power Builder", "Регистратура, услуги, мед. процессы")
+    System_Ext(pharma_sys, "Pharma Systems", "Mixed", "Склад/продажи/каталоги")
+    System_Ext(med_device, "Med Electronics Telemetry", "Embedded/IoT", "Телеметрия оборудования")
+  }
+
+  Container_Boundary(data_platform, "Data Platform") {
+    Container(lakehouse, "Lakehouse Storage", "Object Storage/Parquet", "Raw/Curated/Serving слои")
+    Container(compute, "Distributed Compute", "Batch/Stream Jobs", "ETL/ELT/Quality/Backfill")
+    Container(streaming, "Streaming Platform", "Event Bus", "События доменов, CDC")
+    Container(ingestion, "CDC & Ingestion", "Connectors", "CDC из БД/логов, batch ingestion")
+    Container(sem_layer, "Semantic Layer", "Metrics-as-Code", "Единые определения метрик/KPI")
+    Container(portal, "Self-Service Data Portal", "BI/Portal", "Доступ к витринам и отчётам (без PHI)")
+    Container(catalog, "Data Catalog & Lineage", "Catalog/Lineage", "Поиск датасетов, происхождение, data contracts")
+    Container(govern, "Data Governance & Policy", "IAM/RBAC/ABAC/Masking", "Политики доступов, PII/PHI маскирование")
+    Container(obs, "Observability Stack", "Logs/Metrics/Tracing", "Мониторинг пайплайнов и SLA/SLO")
+    Container(ai_ml, "AI/ML Platform", "Python/Feature Store", "Модели ИИ, обучение и инференс (PHI — только внутри доменов)")
+  }
+
+  Container_Boundary(domains, "Domain Data Products") {
+    Container(fin_dp, "Finance Data Products", "Curated Tables/Streams", "Транзакции, счета, возвраты, KPI")
+    Container(clinic_dp, "Clinics Data Products", "Curated Tables/Streams", "Нефи/агрегаты по услугах, расписания, загрузка")
+    Container(pharma_dp, "Pharma Data Products", "Curated Tables/Streams", "SKU/запасы/продажи")
+    Container(medelec_dp, "Med-Electronics Data Products", "Curated Tables/Streams", "Телеметрия, алерты, SLA оборудования")
+  }
+
+  Container(legacy_dwh, "Legacy DWH", "MS SQL Server 2008", "Историческая логика/отчёты")
+  Container(legacy_bi, "Legacy BI", "Power BI / Power Builder", "Кастомные отчёты (phase-out)")
+
+  Container(security, "Security & KMS/Vault", "Secrets/KMS", "Ключи, секреты, шифрование")
+
+}
+
+' ==== Relationships ====
+Rel(bi_user, portal, "Аналитика/самообслуживание (без PHI)")
+Rel(data_eng, sem_layer, "Определения метрик/KPI")
+Rel(data_eng, compute, "Пайплайны и тесты данных")
+Rel(sec_officer, govern, "Политики доступов/маскирование")
+
+Rel(op_sources, ingestion, "CDC / Batch", "JDBC/Logs/S3/etc.")
+Rel(op_sources, streaming, "События доменов", "Producers")
+
+Rel(ingestion, lakehouse, "Raw landing")
+Rel(streaming, lakehouse, "Stream sinks")
+Rel(compute, lakehouse, "Read/Write curated/serving")
+Rel(catalog, lakehouse, "Harvest metadata/lineage")
+Rel(govern, lakehouse, "Политики/маскирование")
+Rel(portal, sem_layer, "Запросы к метрикам/витринам")
+Rel(sem_layer, fin_dp, "Чтение витрин")
+Rel(sem_layer, clinic_dp, "Чтение витрин")
+Rel(sem_layer, pharma_dp, "Чтение витрин")
+Rel(sem_layer, medelec_dp, "Чтение витрин")
+
+Rel(fin_core, fin_dp, "Контракты/слои", "Через платформу")
+Rel(clinic_his, clinic_dp, "Контракты/слои", "Через платформу")
+Rel(pharma_sys, pharma_dp, "Контракты/слои", "Через платформу")
+Rel(med_device, medelec_dp, "Контракты/слои", "Через платформу")
+
+Rel(legacy_dwh, sem_layer, "Промежуточный доступ к нужным метрикам", "Временно")
+Rel(legacy_bi, legacy_dwh, "Существующие отчёты")
+
+Rel(govern, portal, "Авторизация/маскирование")
+Rel(security, compute, "Секреты/ключи")
+Rel(security, ingestion, "Секреты/ключи")
+Rel(security, streaming, "Секреты/ключи")
+Rel(security, lakehouse, "Шифрование/ключи")
+Rel(obs, compute, "Метрики/логи/трейсы")
+Rel(obs, streaming, "Метрики/логи")
+Rel(obs, ingestion, "Мониторинг ingestion")
+
+' ==== Notes ====
+UpdateElementStyle(portal, $bgColor="#e8f5e9")
+UpdateElementStyle(sem_layer, $bgColor="#e8f5e9")
+UpdateElementStyle(govern, $bgColor="#e3f2fd")
+UpdateElementStyle(catalog, $bgColor="#e3f2fd")
+UpdateElementStyle(streaming, $bgColor="#fff3e0")
+UpdateElementStyle(ingestion, $bgColor="#fff3e0")
+UpdateElementStyle(lakehouse, $bgColor="#ede7f6")
+UpdateElementStyle(compute, $bgColor="#ede7f6")
+UpdateElementStyle(legacy_dwh, $bgColor="#ffebee")
+UpdateElementStyle(legacy_bi, $bgColor="#ffebee")
+
+@enduml
