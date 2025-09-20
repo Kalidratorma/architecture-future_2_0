@@ -39,6 +39,7 @@ System_Boundary(company, "Future 2.0") {
 
   Container(legacy_dwh, "Legacy DWH", "MS SQL Server 2008", "Историческая логика/отчёты")
   Container(legacy_bi, "Legacy BI", "Power BI / Power Builder", "Кастомные отчёты (phase-out)")
+  Container(api_gateway, "API Gateway", "API Management", "Маршрутизация и ФЛК для синхронных интеграций")
 
   Container(security, "Security & KMS/Vault", "Secrets/KMS", "Ключи, секреты, шифрование")
 
@@ -93,4 +94,11 @@ UpdateElementStyle(compute, $bgColor="#ede7f6")
 UpdateElementStyle(legacy_dwh, $bgColor="#ffebee")
 UpdateElementStyle(legacy_bi, $bgColor="#ffebee")
 
+
+Rel(fin_core, api_gateway, "Синхронные запросы / ФЛК")
+Rel(clinic_his, api_gateway, "Синхронные запросы / ФЛК")
+Rel(pharma_sys, api_gateway, "Синхронные запросы / ФЛК")
+Rel(med_device, api_gateway, "Синхронные запросы / ФЛК")
+
+Rel(api_gateway, ingestion, "Синхронные вызовы к Data Platform (валидация, маршрутизация)")
 @enduml
